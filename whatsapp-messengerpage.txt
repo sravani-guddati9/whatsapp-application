@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Messenger</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        header {
+            background-color: #25D366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .chat {
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .message.sent {
+            background-color: #dcf8c6;
+            text-align: right;
+        }
+        .message.received {
+            background-color: #fff;
+            text-align: left;
+        }
+        .input-area {
+            display: flex;
+            padding: 10px;
+        }
+        .input-area input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-area button {
+            padding: 10px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WhatsApp Messenger</h1>
+        </header>
+        <div class="chat" id="chat"></div>
+        <div class="input-area">
+            <input type="text" id="messageInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const messageText = input.value;
+            if (messageText.trim() === '') return;
+
+            const chat = document.getElementById('chat');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'sent');
+            messageElement.textContent = messageText;
+            chat.appendChild(messageElement);
+            input.value = '';
+
+            // Simulate receiving a message
+            setTimeout(() => {
+                const receivedMessage = document.createElement('div');
+                receivedMessage.classList.add('message', 'received');
+                receivedMessage.textContent = 'This is a response!';
+                chat.appendChild(receivedMessage);
+                chat.scrollTop = chat.scrollHeight;
+            }, 1000);
+            chat.scrollTop = chat.scrollHeight;
+        }
+    </script>
+</body>
+</html>
+
