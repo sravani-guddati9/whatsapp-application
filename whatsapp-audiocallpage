@@ -1,0 +1,43 @@
+# WhatsApp Audio Call Button
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Audio Call</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 20px;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://wa.me/1234567890?call" class="whatsapp-button" target="_blank">Audio Call on WhatsApp</a>
+
+    <script>
+        document.querySelector('.whatsapp-button').addEventListener('click', function() {
+            alert('Initiating audio call...');
+        });
+    </script>
+</body>
+</html>
+
