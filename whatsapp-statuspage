@@ -1,0 +1,78 @@
+# WhatsApp Status Webpage
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            color: #25D366;
+            margin-bottom: 20px;
+        }
+        .status {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            transition: transform 0.2s;
+        }
+        .status:hover {
+            transform: scale(1.05);
+        }
+        button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My WhatsApp Status</h1>
+        <div class="status">Feeling great today!</div>
+        <div class="status">Learning to code is fun!</div>
+        <div class="status">Just had a delicious meal!</div>
+        <button onclick="addStatus()">Add Status</button>
+    </div>
+
+    <script>
+        function addStatus() {
+            const newStatus = prompt("Enter your new status:");
+            if (newStatus) {
+                const statusDiv = document.createElement("div");
+                statusDiv.className = "status";
+                statusDiv.textContent = newStatus;
+                document.querySelector(".container").appendChild(statusDiv);
+            }
+        }
+    </script>
+</body>
+</html>
+
